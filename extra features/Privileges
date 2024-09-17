@@ -1,0 +1,16 @@
+
+//Run the following scripts on phpmyadmin
+
+CREATE USER 'testcase'@'localhost' IDENTIFIED BY 'testcase';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON test.* TO 'testcase'@'localhost';
+FLUSH PRIVILEGES;
+
+//Change CustomerUpdate.html
+//$username ="testcase"; $password = "testcase";
+//try to update a CID
+
+REVOKE UPDATE, DELETE ON test.* FROM 'testcase'@'localhost';
+FLUSH PRIVILEGES;
+
+//try to update a CID

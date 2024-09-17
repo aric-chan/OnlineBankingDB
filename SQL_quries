@@ -1,0 +1,66 @@
+1. Projection query ($varProject is a variable selected in the drop down menu)
+
+SELECT $varProject FROM Customer
+
+2. Selection query 
+
+SELECT * FROM Customer WHERE Date_of_Birth = '$dob'
+
+3. Join query
+
+SELECT Product.Product_ID, Product.Status, Product.Type, Product.Interest_Rate, Loan.Maturity, Loan.Amount FROM Product, Loan WHERE Product.Product_ID = Loan.Product_ID
+
+SELECT Product.Product_ID, Product.Status, Product.Type, Product.Interest_Rate, Credit_Cards.CardLimit, Credit_Cards.Rebate_Rate FROM Product, Credit_Cards WHERE Product.Product_ID = Credit_Cards.Product_ID
+
+4. Division query
+
+SELECT Full_Name FROM Customer WHERE CID IN (
+        SELECT DISTINCT CID FROM Account a1
+        WHERE NOT EXISTS (
+            (SELECT Account_Type FROM Account)
+            EXCEPT
+            (SELECT Account_Type FROM Account a2 WHERE a1.CID = a2.CID)))
+
+5. Aggregation query
+
+SELECT MAX(Balance) FROM Account
+
+SELECT MIN(Balance)FROM Account
+
+6. Nested aggregation with group-by
+
+SELECT AVG(Balance),Account_Type FROM Account GROUP BY Account_Type
+
+7. Delete operation
+
+ALTER TABLE Account ADD CONSTRAINT FK_Account_Customer FOREIGN KEY (CID) REFERENCES Customer(CID) ON DELETE CASCADE
+
+ALTER TABLE Deposit ADD CONSTRAINT FK_Account_Deposit FOREIGN KEY (Account_Number) REFERENCES Account(Account_Number) ON DELETE CASCADE
+
+ALTER TABLE Withdraw ADD CONSTRAINT FK_Account_Withdraw FOREIGN KEY (Account_Number) REFERENCES Account(Account_Number) ON DELETE CASCADE
+
+DELETE FROM CUSTOMER WHERE CID = $varCid
+
+SELECT CID, FULL_NAME, ADDRESS, PHONE, Date_Of_Birth, Email FROM Customer
+
+SELECT Account_Number, Balance, Account_Type, CID FROM Account
+
+8. Update Operation
+
+UPDATE Customer SET Address = '$varAddress' WHERE CID = $varCid
+
+UPDATE Customer SET Address = '$varAddress', Phone = $varPhone WHERE CID = $varCid
+
+UPDATE Customer SET Address = '$varAddress', Phone = $varPhone, Email = '$varEmail' WHERE CID = $varCid
+
+UPDATE Customer SET Address = '$varAddress', Email = '$varEmail' WHERE CID = $varCid
+
+UPDATE Customer SET Phone = $varPhone WHERE CID = $varCid
+
+UPDATE Customer SET Phone = $varPhone, Email = '$varEmail' WHERE CID = $varCid
+
+UPDATE Customer SET Email = '$varEmail' WHERE CID = $varCid
+
+SELECT CID, FULL_NAME, ADDRESS, PHONE, Date_Of_Birth, Email FROM Customer c WHERE CID = $varCid
+
+

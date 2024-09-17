@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <h1> Remove customer from database </h1>
+    <body>
+        <form action="CustomerDelete.php" method="POST">
+            <fieldset>
+                <legend>First Click This !! </legend>
+                <label for="implement">Implement ON DELETE CASCADE on Account, Deposit & Withdraw Table</label>
+                <br><br>
+                <input type="submit" name="implement_button" value="Implement" />
+            </fieldset>
+        </form>
+        <form action="CustomerDelete.php" method="POST">
+            <fieldset>
+                <legend>Delete Customer</legend>
+                <label for="cid">Customer ID:</label>
+                <input type="text" name="cid" required>
+                <br><br>
+                <input type="submit" name="delete_button" value="Delete" />
+            </fieldset>
+        </form>
+    </body>
+</html>
