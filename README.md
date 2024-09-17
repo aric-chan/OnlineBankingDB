@@ -1,21 +1,49 @@
-## Goal of the database
-Our goal was to develop an Online Banking System that would let bank employee create and manage their account and use different queries with the intent to interact with the banking system using our php and html pages. We have created a script which has tuples inserted into each table that we connected to our pages from our database.
+## Database Goal
 
-## How to run sql scripts to populate data entries and interact database with html
-1. After installing XAMPP, put all html and php files to HTDOCS folder and place in root directory of XAMPP installation
-2. In phpMyAdmin, change the root user password to "root"
-3. Create a database "test"
-4. To run SQL scripts, click the database "test" and then click SQL tab
-5. First run the Create_Table, paste the text in the text field and click go button
-6. Then run the Insertion, paste the text in the text field and click go button
-7. Input "http://localhost/bank_landing.html" in your browser to launch the bank landing page
+The goal of this project was to develop an Online Banking System that allows bank employees to create and manage customer accounts. Employees can interact with the banking system using PHP and HTML pages, running queries to access different aspects of the system. We created a script that populates the database with sample data and linked it to the web interface for interaction.
 
-## List of queries constructed
--- Projection Query: User will be able to choose any column within the customer table and display it using a drop down list and a submit button. 
--- Selection Query: User can check a customer tuple when submitting the date of birth of a customer. So in short selects customer where date of birth = user input, if the input is valid then a table of their information will be displayed.
--- Join Query: By joining the Product and Credit Card table, bank employees can browse the each credit card product details and its product status. Similarly, users can browse loan product details by clicking the button of loan that join the Product and Loan table.
--- Division Query: The user can display on a table a customer list that has all types of bank account.
--- Aggregation Query:  The user can click either the maximum balance or the minimum balance, choosing either the page will display a table with the greatest balance in our banking system or with minimum the latter. 
--- Nested Aggregation Query: The user can display the average balance by account type which is grouped by the account type.
--- Delete Operation: The user has the ability to delete a tuple from the customer table of what ever customer ID is given, but first they must click the implementation of the ON DELETE CASCADE button for the operation run successfully and the deletion will be performed.
--- Update Operation: User picks a userID to update and they are free to update any of the following options: address, phone or email respectively. Once done it will update that row and display it to the user the successful update.
+## How to Run SQL Scripts and Integrate the Database with HTML
+
+1. **Install XAMPP**:
+   - Place all HTML and PHP files into the `htdocs` folder, located in the root directory of your XAMPP installation.
+  
+2. **Change phpMyAdmin Root Password**:
+   - Open `phpMyAdmin` and change the root user password to `"root"`.
+
+3. **Create a Database**:
+   - In phpMyAdmin, create a database named `test`.
+
+4. **Run SQL Scripts**:
+   - In phpMyAdmin, click on the `test` database, then select the `SQL` tab.
+   - First, run the `Create_Table` script by pasting its content into the text field and clicking the **Go** button.
+   - Next, run the `Insertion` script in the same manner.
+
+5. **Launch the Bank Landing Page**:
+   - Open your browser and go to `http://localhost/bank_landing.html` to view the online banking system.
+
+## List of Constructed Queries
+
+1. **Projection Query**:
+   - Users can select any column within the customer table from a dropdown list and display it by submitting the form.
+
+2. **Selection Query**:
+   - Users can retrieve customer information by entering a date of birth. If the input is valid, a table of matching customer details will be displayed.
+
+3. **Join Query**:
+   - Bank employees can view credit card product details by joining the `Product` and `Credit Card` tables. Similarly, loan details can be accessed by joining the `Product` and `Loan` tables.
+
+4. **Division Query**:
+   - Users can display a table of customers who hold all types of bank accounts.
+
+5. **Aggregation Query**:
+   - Users can view the customer with the maximum or minimum balance by clicking the corresponding button. The page will display a table with the result.
+
+6. **Nested Aggregation Query**:
+   - Users can display the average balance grouped by account type.
+
+7. **Delete Operation**:
+   - Users can delete a customer by entering the customer ID. To ensure a successful deletion, the **ON DELETE CASCADE** option must be enabled.
+
+8. **Update Operation**:
+   - Users can select a `userID` and update the address, phone number, or email. After submission, the page will display the updated row, confirming the changes.
+
